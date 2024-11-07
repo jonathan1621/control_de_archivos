@@ -81,43 +81,6 @@ class ArchivoController extends Controller
         return view('archivos.edit', compact('archivo'));
     }
 
-    // public function update(Request $request, Archivo $archivo)
-    // {
-    //     $request->validate([
-    //         'tipo_id' => 'required|integer',
-    //         'descripcion' => 'required|string|max:255',
-    //         'archivo' => 'nullable|file|mimes:pdf|max:2048',
-    //     ]);
-
-    //     $nombreOriginal = $request->file('archivo')->getClientOriginalName();
-
-    //     $nombreLimpio = time() . '_' . preg_replace('/[^a-zA-Z0-9_\.-]/', '_', $nombreOriginal);
-
-    //     // Si se proporciona un nuevo archivo, reemplaza el anterior
-    //     if ($request->hasFile('archivo')) {
-    //         // Elimina el archivo anterior si existe
-    //         if ($archivo->descripcion) {
-    //             Storage::disk('public')->delete($archivo->descripcion);
-    //         }
-
-    //         // Guarda el nuevo archivo y obtiene la descripcion
-    //         $archivoPath = $request->file('archivo')->storeAs('archivos', $nombreLimpio, 'public');
-    //         $archivo->descripcion = $archivoPath;
-
-    //         $archivo->archivo = $request->file('archivo')->getClientOriginalName();
-    //     }
-
-    //     // Actualiza otros campos
-    //     $archivo->tipo_id = $request->tipo_id;
-    //     $archivo->descripcion = $request->descripcion;
-    //     $archivo->nombre_original = $nombreOriginal;
-    //     $archivo->archivo = $archivoPath;
-    //     $archivo->save();
-
-    //     return redirect()->route('archivos.index')
-    //         ->with('success', 'Registro actualizado exitosamente');
-    // }
-
     public function update(Request $request, Archivo $archivo)
     {
         $request->validate([
